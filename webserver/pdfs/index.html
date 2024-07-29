@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<body id="bruh">
+    <style>
+        @font-face {
+            font-family: "silkscreen";
+            src: url("style/silkscreen.ttf");
+        }
+    
+        #heading {
+            font-size:6vw;
+            margin: 0;
+        }
+    
+        #heading2 {
+            font-size: 3vw;
+            margin: 0;
+        }
+    
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Silkscreen', sans-serif;
+            color: #18ff03;
+            background: black;
+            overflow: hidden;
+            font-size: calc(10px + 2vmin); /* Responsive font size */
+        }
+    
+        #bruh {
+            width: 100%;
+            height: 100%;
+        }
+    
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+    
+        .centered {
+            text-align: center;
+        }
+    
+        #form {
+            border: 6px solid #18ff03;
+            padding: 4vw;
+            width: 80%;
+            max-width: 600px;
+            margin: 20px 0;
+        }
+    
+        .left-aligned {
+            text-align: left;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+    
+        input[type="text"], input[type="password"] {
+            width: 90%;
+            padding: 0.5vw;
+            margin: 10px 0;
+            background: black;
+            border: 6px solid #18ff03;
+            color: #18ff03;
+            font-family: 'Silkscreen', sans-serif;
+            font-size:26px;
+            transition: background 0.3s, color 0.3s;
+        }
+    
+        input[type="text"]:hover, input[type="password"]:hover {
+            width: 90%;
+            padding: 0.5vw;
+            margin: 10px 0;
+            background: #18ff03;
+            border: 6px solid black;
+            color: black;
+            font-family: 'Silkscreen', sans-serif;
+            transition: background 0.3s, color 0.3s;
+        }
+    
+    
+        input[type="submit"] {
+            padding: 10px;
+            background: black;
+            border: 6px solid #18ff03;
+            color: #18ff03;
+            cursor: pointer;
+            border-radius: 0px;
+            transition: background 0.3s, color 0.3s;
+            font-family: 'Silkscreen', sans-serif;
+            font-size:30px;
+        }
+    
+        input[type="submit"]:hover {
+            background: #18ff03;
+            color: black;
+            border: 6px solid #000;
+        }
+    
+        #errbox {
+            margin-top: 20px;
+            padding: 1vw;
+            border: 6px solid red;
+            color: red;
+            text-align: center;
+        }
+    
+        #err {
+            font-size: 1.5vw;
+        }
+    
+        @media (max-width: 600px) {
+            #heading {
+                font-size: 8vw;
+            }
+    
+            #heading2 {
+                font-size: 6vw;
+            }
+    
+            .left-aligned, input[type="text"], input[type="password"], input[type="submit"] {
+                font-size: 5vw;
+            }
+    
+            #err {
+                font-size: 5vw;
+            }
+            }
+        fieldset{
+            border: 6px solid #18ff03;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1em;
+            width:70%;
+            height:70%;
+        }
+</style>
+<center>
+<fieldset>
+<h1>WHAT IS GOING ON ?</h1><br>
+<h1>GO BACK TO THE <a href="../index.php">MAIN PAGE</a></h1>
+</fieldset>
+</center>
+</body>
+<script src="../style/three.r134.min.js"></script>
+<script src="../style/vanta.net.min.js"></script>
+<script>
+VANTA.NET({
+  el: "#bruh",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: true,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: 0xff1b,
+  backgroundColor: 0xd0d0f,
+  points: 15.00,
+  spacing: 17.00
+})
+</script>
+</html>
