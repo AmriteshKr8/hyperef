@@ -107,7 +107,7 @@ else{
 </head>
 <body bgcolor="black">
     <div id="bruh">
-    <center><fieldset id="spacer"><h1 id="heading">C O D E B R E A K E R S</h1></fieldset></center><br>
+    <center><fieldset id="spacer"><h1 id="heading">H Y P E R E F</h1></fieldset></center><br>
     <fieldset id="box"><legend><font id="head">RULES</font></legend>
     <ul>
     <li>NO TEXT TO BE PRINTED WHILE TAKING INPUT(S).</li>
@@ -424,7 +424,7 @@ $conn->close();
 <body>
 <div id="vanta-bg"></div>
 <fieldset>
-<h1 id='heading'>C O D E B R E A K E R S</h1>
+<h1 id='heading'>H Y P E R E F</h1>
 <hr>
 <fieldset>
     <h1 id="schoolnamedisplay">Live Scoreboard:</h1>
