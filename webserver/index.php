@@ -682,10 +682,7 @@ function handleFormSubmission($fileInput, $directoryName, $questionId, $qnscore)
         $badcode = 0;
 
         // Fetch test cases from the database
-        $host = "localhost";
-        $user = "root";
-        $passwd = "155988";
-        $db = "infinity";
+        include 'creds.php';
         $conn = new mysqli($host, $user, $passwd, $db);
 
         if ($conn->connect_error) {
