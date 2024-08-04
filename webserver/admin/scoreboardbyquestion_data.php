@@ -2,7 +2,10 @@
 include 'auth_admin.php';
 include 'creds.php';
 $conn = new mysqli($host, $user, $passwd, $db);
-for($i=1;$i<=5;$i++){
+$sql = "select id from questions";
+$result = $conn->query($sql);
+$qno = $result->num_rows;
+for($i=1;$i<=$qno;$i++){
     $sql = "select schoolcode, question, time from submissions where question = $i limit 3";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {

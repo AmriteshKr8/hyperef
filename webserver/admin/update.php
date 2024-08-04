@@ -27,17 +27,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->close();
     } elseif (isset($_POST['number'])) {
         $number = intval($_POST['number']);
-        $newTableName = "L" . $number;
         $newSubmissions = "S" . $number;
-        $conn->query("CREATE TABLE $newTableName AS SELECT * FROM leaderboard");
-        $conn->query("TRUNCATE TABLE leaderboard");
         $conn->query("CREATE TABLE $newSubmissions AS SELECT * FROM submissions");
         $conn->query("TRUNCATE TABLE submissions");
-        echo "Data copied to table $newTableName.";
         echo "Data copied to table $newSubmissions.";
     } elseif (isset($_POST['truncate'])) {
         $conn->query("TRUNCATE TABLE submissions");
-        $conn->query("TRUNCATE TABLE leaderboard");
     }
 }
 
