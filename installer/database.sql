@@ -6,15 +6,6 @@ CREATE TABLE admins (
     password VARCHAR(30) DEFAULT NULL
 );
 
-CREATE TABLE leaderboard (
-    schoolcode TEXT DEFAULT NULL,
-    score INT(11) DEFAULT NULL,
-    q1 FLOAT DEFAULT NULL,
-    q2 FLOAT DEFAULT NULL,
-    q3 FLOAT DEFAULT NULL,
-    q4 FLOAT DEFAULT NULL,
-    q5 FLOAT DEFAULT NULL
-);
 
 CREATE TABLE questions (
     id INT(11) NOT NULL PRIMARY KEY,
@@ -25,7 +16,8 @@ CREATE TABLE questions (
 CREATE TABLE submissions (
     schoolcode VARCHAR(50) DEFAULT NULL,
     time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    question INT(11) DEFAULT NULL
+    question INT(11) DEFAULT NULL,
+    score int(255) DEFAULT NULL
 );
 
 CREATE TABLE users (
