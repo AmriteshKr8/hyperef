@@ -1,3 +1,63 @@
+@font-face {
+    font-family: "anurati";
+    src: url("anurati.otf");
+}
+@font-face {
+    font-family: "minecraft";
+    src: url("minecraft.otf");
+}
+@font-face {
+    font-family: "nasa";
+    src: url("nasalisation.otf");
+}
 #nav{
-    background-color: rgb(195, 214, 250);
+    background-color: rgba(0, 0, 0, 0.301);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    width:100%;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    border-radius: 4px;
+}
+li a{
+    font-family: nasa;
+    display: block;
+    max-width: 30vw;
+    display: block;
+    color: crimson;
+    border-radius: 4px;
+    padding: 8px 16px;
+    text-decoration: none;
+    text-align:center;
+    }
+    
+li a:hover {
+    background-color: crimson;
+    color: black;
+    }
+body::-webkit-scrollbar{
+    width: 0rem;
+}
+h1{
+    font-family: nasa;
+    font-size: max(5vw,60px);
+    color:crimson;
+}
+fieldset{
+    font-family: nasa;
+    color:rgb(167, 23, 52);
+    border-radius: 30px;
+    border-width: 10px;
+    border-color: crimson;
+    font-size: 19px;
+    padding:6px;
+}
+code{
+    background-color: rgba(102, 100, 100, 0.452);
+    padding:6px;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: white;
 }
