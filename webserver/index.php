@@ -418,15 +418,24 @@ function handleFormSubmission($fileInput, $directoryName, $questionId, $qnscore)
 
                 $output = stream_get_contents($pipes[1]);
                 fclose($pipes[1]);
+                $expectedOutput_array = (explode("^",$expectedOutput));
+                $output_array = (explode("\n",$output));
+                if($output_array[sizeof($output_array)-1] == NULL){
+                    array_pop($output_array);
+                }
 
                 $errorOutput = stream_get_contents($pipes[2]);
                 fclose($pipes[2]);
 
                 $return_value = proc_close($process);
                 $executionCount++;
-                $output = trim($output);
-
-                if ($expectedOutput !== $output) {
+                $compare=array_diff($expectedOutput_array,$output_array);
+                if(sizeof($output_array) == sizeof($expectedOutput_array)){
+                    if(sizeof($compare) > 0){
+                        $badcode = 1;
+                        break;
+                    }
+                } else {
                     $badcode = 1;
                     break;
                 }
