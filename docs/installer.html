@@ -13,59 +13,35 @@
     </ul>
     <center><h1>INSTALL-GUIDE</h1></center>
     <fieldset>
+      <h3>Get the source:</h3>
       Clone the git repository:<br>
-      <br>
-      <code>
+      <p id="code">
         git clone https://github.com/AmriteshKr8/hyperef.git
-      </code>
-      <br>
-      <br>
+      </p id="code">
       Enter its directory:<br>
-      <br>
-      <code>
+      <p id="code">
         cd hyperef
-      </code>
-      <br>
-      <br>
+      </p id="code">
       <h3>Configuration(Optional but Recommended):</h3>
       Change the web-password:<br>
-      <br>
-      <code>
+      <p id="code">
         nano installer/database.sql
-      </code>
-      <br>
-      <br>
+      </p id="code">
       Change the default username and password on this line:<br>
-      <br>
-      <code>
+      <p id="code">
         insert into admins(name,password) values('admin','admin@!#+330');
-      </code>
-      <br>
-      <br>
+      </p id="code">
       Change the default mysql password on these two lines:<br>
-      <br>
-      <code>
-        $password = "rootuser123#";
-      </code>
-      <br>
-      <br>
-      <code>
+      <p id="code">
+        $password = "rootuser123#";<br>
         $passwd = "rootuser123#";
-      </code>
-      <br>
-      <br>
+      </p id="code">
       <strong>NOTE:</strong> Edit both lines to have matching passwords<br>
-      <br>
-      Run the installer:<br>
-      <br>
-      <code>
+      <h3>Run the installer:</h3>
+      <p id="code">
         sudo sh install
-      </code>
-      <br>
-      <br>
+      </p id="code">
       <strong>Please refer to <a href="docs.html">installer-docs</a> for advanced options</strong>
-      <br>
-      <br>
     </fieldset>
   </body>
 </html>

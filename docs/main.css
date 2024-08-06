@@ -53,11 +53,11 @@ fieldset{
     font-size: 19px;
     padding:6px;
 }
-code{
+#code{
     background-color: rgba(102, 100, 100, 0.452);
     padding:6px;
     border-radius: 10px;
     border-width: 3px;
     border-color: white;
-    width:80%;
+    min-width: 0px;
 }
