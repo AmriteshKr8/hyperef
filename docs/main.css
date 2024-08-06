@@ -11,7 +11,7 @@
     src: url("nasalisation.otf");
 }
 #nav{
-    background-color: rgba(0, 0, 0, 0.301);
+    background-color: #34463aa2;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -23,10 +23,9 @@
 }
 li a{
     font-family: nasa;
-    display: block;
     max-width: 60vw;
     display: block;
-    color: crimson;
+    color: rgb(189, 223, 228);
     border-radius: 4px;
     padding: 8px 16px;
     text-decoration: none;
@@ -34,8 +33,8 @@ li a{
     }
     
 li a:hover {
-    background-color: crimson;
-    color: black;
+    background-color: rgb(189, 223, 228);
+    color: #34463A;
     }
 body::-webkit-scrollbar{
     width: 0rem;
@@ -43,14 +42,14 @@ body::-webkit-scrollbar{
 h1{
     font-family: nasa;
     font-size: max(5vw,60px);
-    color:crimson;
+    color:rgb(68, 87, 75);
 }
 fieldset{
     font-family: nasa;
-    color:rgb(167, 23, 52);
+    color: #34463A;
     border-radius: 30px;
     border-width: 10px;
-    border-color: crimson;
+    border-color: #34463A;
     font-size: 19px;
     padding:6px;
 }
@@ -60,4 +59,5 @@ code{
     border-radius: 10px;
     border-width: 3px;
     border-color: white;
+    width:80%;
 }

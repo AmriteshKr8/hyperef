@@ -32,4 +32,4 @@ CREATE TABLE testcases (
     output VARCHAR(1024) DEFAULT NULL
 );
 
-insert into admins(name,password) values('admin','admin@!#+330');
+insert into admins(name,password) values('admin','admin@!#+330'); -- Change the username and password for the web panel
