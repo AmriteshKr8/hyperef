@@ -1,0 +1,222 @@
+body{
+    background-color: rgb(31, 28, 28);
+}
+input[type=submit], input[type=button]{
+    max-width: auto;
+    padding: 10px 10px;
+    font-family: nasa;
+    font-size: 20px;
+    background-color: #ffffff00;
+    color: #FFF;
+    border: 6px solid #ffffffab;
+    border-radius:10px;
+    margin:10px;
+}
+input[type=submit]:hover, input[type=button]:hover{
+    background: #000;
+    color: #FFF;
+    border: 6px solid #FFF;
+}
+#login{
+    border-radius: 10px;
+    max-width: 500px;
+    max-height: 500px;
+    min-width: 50%;
+    min-height: 70%;
+    border-width: 6px;
+    border-color: azure;
+}
+fieldset{
+    border-radius: 10px;
+    min-width: 50%;
+    min-height: 70%;
+    border-width: 6px;
+}
+#errbox{
+    border-radius: 10px;
+    max-width: 500px;
+    min-width: 50%;
+    border-width: 6px;
+    border-color: azure;
+    color: red;
+}
+#login-input{
+    color:rgb(180, 206, 228);
+    font-size: 32px;
+}
+#login-heading{
+    color: rgb(180, 206, 228);
+    font-size: 38px;
+}
+body::-webkit-scrollbar{
+    width: 0rem;
+}
+#login-input-text {
+    width: 90%;
+    padding: 0.5vw;
+    margin: 10px 0;
+    background: rgba(77, 77, 77, 0.603);
+    border: 2px solid #ffffff;
+    color: #b7d4cd;
+    border-radius: 10px;
+    font-family: 'nasa';
+    font-size: 26px;
+    transition: background 0.3s, color 0.3s;
+}
+
+#login-input-text:hover {
+    width: 90%;
+    padding: 0.5vw;
+    margin: 10px 0;
+    background: #4a0fb863;
+    border: 2px solid rgba(165, 0, 14, 0.795);
+    color: black;
+    font-family: 'nasa';
+    transition: background 0.3s, color 0.3s;
+}
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px 10px; 
+    margin-top: -10px;
+}
+table, th, td {
+    border: 6px solid #ffffffab;
+    border-radius: 10px;
+}
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+body{
+    color:#b7d4cd;
+    font-size: 20px;
+    font-family: 'nasa';
+}
+@font-face {
+    font-family: "anurati";
+    src: url("anurati.otf");
+}
+@font-face {
+    font-family: "minecraft";
+    src: url("minecraft.otf");
+}
+@font-face {
+    font-family: "nasa";
+    src: url("nasalisation.otf");
+}
+input[type="text"], input[type="password"] {
+    width: 40%;
+    padding: 8px;
+    margin: 10px 0;
+    background: rgba(0, 0, 0, 0);
+    border: 2px solid #ffffff;
+    color: #acffea;
+    border-radius: 10px;
+    font-family: 'nasa', sans-serif;
+    font-size: 26px;
+    transition: background 0.3s, color 0.3s;
+}
+
+input[type="text"]:hover, input[type="password"]:hover {
+    width: 40%;
+    padding: 8px;
+    margin: 10px 0;
+    background: #4a0fb863;
+    border: 2px solid rgba(165, 0, 14, 0.795);
+    color: black;
+    font-family: 'nasa', sans-serif;
+    transition: background 0.3s, color 0.3s;
+}
+
+textarea{
+    width: 40%;
+    padding: 8px;
+    margin: 10px 0;
+    background: rgba(0, 0, 0, 0);
+    border: 2px solid #ffffff;
+    color: #acffea;
+    border-radius: 10px;
+    font-family: 'nasa', sans-serif;
+    font-size: 26px;
+    transition: background 0.3s, color 0.3s;
+}
+
+textarea:hover{
+    width: 40%;
+    padding: 8px;
+    margin: 10px 0;
+    background: #4a0fb863;
+    border: 2px solid rgba(165, 0, 14, 0.795);
+    color: black;
+    font-family: 'nasa', sans-serif;
+    transition: background 0.3s, color 0.3s;
+}
+
+input[type="number"] {
+    width: 40%;
+    padding: 8px;
+    margin: 10px 0;
+    background: rgba(0, 0, 0, 0);
+    border: 2px solid #ffffff;
+    color: #acffea;
+    border-radius: 10px;
+    font-family: 'nasa', sans-serif;
+    font-size: 26px;
+    transition: background 0.3s, color 0.3s;
+}
+
+input[type="number"]:hover {
+    width: 40%;
+    padding: 8px;
+    margin: 10px 0;
+    background: #4a0fb863;
+    border: 2px solid rgba(165, 0, 14, 0.795);
+    color: black;
+    font-family: 'nasa', sans-serif;
+    transition: background 0.3s, color 0.3s;
+}
+button{
+    width:100%;
+    height: 100%;
+    border-width: 0px;
+    color: #acffea;
+    background-color: #00000000;
+    font-size: 20px;
+}
+button:hover{
+    border-width: 0px;
+    color: #000000;
+    background-color: #acffea;
+    font-size: 20px;
+    width:100%;
+    height: 100%;
+}
+nav {
+    background-color: #333;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: #acffea;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+nav li a:hover {
+    background-color: #acffea;
+    color: #000;
+}

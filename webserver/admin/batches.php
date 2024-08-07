@@ -34,23 +34,8 @@ function getTableContent($conn, $tableName) {
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="style/main.css">
     <title>Batch Leaderboards</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
 </head>
 <body>
 
@@ -62,34 +47,6 @@ function getTableContent($conn, $tableName) {
         <li><a href="batches.php">Batch Leaderboards</a></li>
     </ul>
 </nav>
-<style>
-nav {
-    background-color: #333;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-nav li {
-    float: left;
-}
-
-nav li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-nav li a:hover {
-    background-color: #111;
-}
-</style>
 
 <?php
 

@@ -1,5 +1,0 @@
-x=int(input())+int(input())+int(input())+int(input())
-print(x)
-print(x)
-print(x)
-print(x+1)

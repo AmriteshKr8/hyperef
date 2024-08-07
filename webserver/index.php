@@ -1,4 +1,6 @@
 <?php
+$NAME = "HYPEREF";
+$NAME_S = "H Y P E R E F";
 $error_message = "";
 function state(){
     $filename = "admin/uyi7y8787tyguhjhg876/test.txt";    
@@ -35,14 +37,12 @@ else{
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lobby</title>
-    <script src="style/three.r134.min.js"></script>
-    <script src="style/vanta.net.min.js"></script>
     <style>
     body, html {
         height: 100%;
         margin: 0;
     }
-    #bruh {
+    #vanta-bg {
         height: 100%;
         align-items: center;
         justify-content: center;
@@ -106,8 +106,8 @@ else{
     </style>
 </head>
 <body bgcolor="black">
-    <div id="bruh">
-    <center><fieldset id="spacer"><h1 id="heading">H Y P E R E F</h1></fieldset></center><br>
+    <div id="vanta-bg">
+    <center><fieldset id="spacer"><h1 id="heading">'.$NAME_S.'</h1></fieldset></center><br>
     <fieldset id="box"><legend><font id="head">RULES</font></legend>
     <ul>
     <li>NO TEXT TO BE PRINTED WHILE TAKING INPUT(S).</li>
@@ -121,23 +121,7 @@ else{
     </div>
     <script src="style/three.r134.min.js"></script>
     <script src="style/vanta.fog.min.js"></script>
-    <script>
-    VANTA.FOG({
-    el: "#bruh",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    highlightColor: 0xff0505,
-    midtoneColor: 0xfc,
-    lowlightColor: 0xcd00ff,
-    baseColor: 0x141414,
-    blurFactor: 0.90,
-    speed: 2.40,
-    zoom: 1.10
-    })
-    </script>
+    <script src="style/bg.js"></script>
 </body>
 </html>
     ';
@@ -268,7 +252,7 @@ $conn->close();
 echo '
 <html>
 <title>
-HYPEREF
+'.$NAME.'
 </title>
 <head>
 <link rel="stylesheet" href="style/main.css">
@@ -276,7 +260,7 @@ HYPEREF
 <body>
 <div id="vanta-bg"></div>
 <fieldset>
-<h1 id="heading">H Y P E R E F</h1>
+<h1 id="heading">'.$NAME_S.'</h1>
 <hr>
 <fieldset>
     <h1 id="schoolnamedisplay">Live Scoreboard:</h1>
@@ -652,22 +636,6 @@ function enterData($team, $fileno, $qnscore) {
         </script>
         <script src="style/three.r134.min.js"></script>
         <script src="style/vanta.fog.min.js"></script>
-        <script>
-            VANTA.FOG({
-            el: "#vanta-bg",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            highlightColor: 0xff0505,
-            midtoneColor: 0xfc,
-            lowlightColor: 0xcd00ff,
-            baseColor: 0x141414,
-            blurFactor: 0.70,
-            speed: 2.40,
-            zoom: 1.10
-            })
-        </script>
+        <script src="style/bg.js"></script>
     </body>
 </html>

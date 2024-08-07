@@ -4,7 +4,7 @@ include 'creds.php';
 $conn = new mysqli($host, $user, $passwd, $db);
 
 echo '<table border="1">';
-echo '<tr><th>Question</th><th>Inputs</th><th>Expected Output</th></tr>';
+echo '<tr><th>Question</th><th>Inputs</th><th>Expected Output</th><th>Action</th></tr>';
 
 $sql = "SELECT * FROM testcases";
 $result = $conn->query($sql);

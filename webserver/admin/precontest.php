@@ -8,14 +8,7 @@ include 'creds.php';
 <meta charset="UTF-8">
 <title>User & Question Management</title>
 <script src="scripts/jquery.min.js"></script>
-<style>
-    /* Basic styling for demonstration */
-    body { font-family: Arial, sans-serif; }
-    fieldset { margin-bottom: 20px; }
-    legend { font-weight: bold; }
-    table, th, td { border: 1px solid #ddd; border-collapse: collapse; padding: 10px; }
-    th, td:first-child { width: 150px; }
-</style>
+<link rel="stylesheet" href="style/main.css">
 </head>
 <body>
 
@@ -27,43 +20,18 @@ include 'creds.php';
         <li><a href="batches.php">Batch Leaderboards</a></li>
     </ul>
 </nav>
-<style>
-nav {
-    background-color: #333;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-nav li {
-    float: left;
-}
-
-nav li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-nav li a:hover {
-    background-color: #111;
-}
-</style>
 
 <fieldset>
 <legend><h1>User Management</h1></legend>
 <fieldset>
 <legend><h1>Add New User</h1></legend>
     <form id="addUserForm">
-        School Code: <input type="text" name="school_code"><br>
-        School: <input type="text" name="school"><br>
-        Password: <input type="password" name="password"><br>
+        School Code:<br>
+        <input type="text" name="school_code"><br>
+        School:<br>
+        <input type="text" name="school"><br>
+        Password:<br>
+        <input type="password" name="password"><br>
         <input type="submit" value="Add User">
     </form>
     </fieldset>
@@ -78,9 +46,12 @@ nav li a:hover {
 <fieldset>
 <legend><h1>Add New Question</h1></legend>
     <form id="addQuestionForm">
-        ID:<input type="number" name="qno"><br>
-        Question: <textarea name="question"></textarea><br>
-        Score: <input type="number" name="score"><br>
+        ID:<br>
+        <input type="number" name="qno"><br>
+        Question:<br>
+        <textarea name="question"></textarea><br>
+        Score:<br>
+        <input type="number" name="score"><br>
         <input type="submit" value="Add Question">
     </form>
 </fieldset>
@@ -91,9 +62,12 @@ nav li a:hover {
 <fieldset>
 <legend><h1>Testcases</h1></legend>
     <form id="addTestcaseForm">
-        Question:<input type="number" name="id"><br>
-        Inputs: <textarea name="input"></textarea><br>
-        Expected Output: <textarea name="output"></textarea><br>
+        Question:<br>
+        <input type="number" name="id"><br>
+        Inputs:<br>
+        <textarea name="input"></textarea><br>
+        Expected Output:<br>
+        <textarea name="output"></textarea><br>
         <input type="submit" value="Add Testcase">
     </form>
 </fieldset>

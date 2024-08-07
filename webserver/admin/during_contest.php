@@ -5,59 +5,14 @@ include 'creds.php';
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="style/main.css">
     <title>STATUS</title>
-    <style>
-        nav {
-            background-color: #333;
-        }
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        nav li {
-            float: left;
-        }
-        nav li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        nav li a:hover {
-            background-color: #111;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
     <script>
         function fetchFileContent() {
             fetch('read_file.php')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('file-status').innerText = data.content;
-                });
-        }
-
-        function fetchLeaderboard() {
-            fetch('leaderboard.php')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('leaderboard').innerHTML = data;
                 });
         }
 
@@ -69,14 +24,6 @@ include 'creds.php';
                 });
         }
 
-        function fetchOccupiedSlots() {
-            fetch('occupied_slots.php')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('occupied-slots').innerHTML = data;
-                });
-        }
-
         function sendFormData(formData) {
             fetch('update.php', {
                 method: 'POST',
@@ -85,7 +32,6 @@ include 'creds.php';
             .then(response => response.text())
             .then(data => {
                 document.getElementById('copy-confirmation').innerText = data;
-                fetchOccupiedSlots();
                 fetchFileContent();
                 fetchSubmissions();
             });
@@ -123,9 +69,7 @@ include 'creds.php';
             });
 
             setInterval(fetchFileContent, 1000);
-            setInterval(fetchLeaderboard, 1000);
             setInterval(fetchSubmissions, 1000);
-            setInterval(fetchOccupiedSlots, 1000);
         });
     </script>
 </head>
@@ -143,20 +87,20 @@ include 'creds.php';
 <p id="file-status">Loading...</p>
 
 <form id="start-end-form">
-    <button id="start-btn">Start</button>
-    <button id="end-btn">End</button>
+    <input type="button" id="start-btn" value="Start">
+    <input type="button" id="end-btn" value="end">
 </form>
 </fieldset>
 <fieldset>
-<legend><h1>Copy Leaderboard Table</h1></legend>
+<legend><h1>Copy Table</h1></legend>
 <form id="copy-table-form" method="post">
-    <label for="number">Enter a number:</label>
+    <label for="number">Save Slot:</label>
     <input type="number" id="number" name="number" required>
-    <button type="submit">Copy Table</button>
+    <input type="submit" value="Save">
 </form>
 
 <form id="truncater">
-    <button id="truncate-current">Truncate</button>
+    <input type="button" id="truncate-current" value="Truncate">
 </form>
 </fieldset>
 <fieldset>
@@ -164,10 +108,5 @@ include 'creds.php';
 <div id="submissions">Loading...</div>
 <p id="copy-confirmation"></p>
 </fieldset>
-<fieldset>
-<legend><h1>Occupied Slots</h1></legend>
-<div id="occupied-slots">Loading...</div>
-<div id="leaderboard"></div>
-    </fieldset>
 </body>
 </html>

@@ -1,3 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+<center>
+<fieldset id="login">
+<legend><h3><font id="login-heading">Login</font></h3></legend>
+<form action="" method="post"> <!-- Changed action to "" since the PHP script is in the same file -->
+    <div id="login-input">Username:</div> <input id="login-input-text" type="text" name="name"><br>
+    <div id="login-input">Password:</div> <input id="login-input-text" type="password" name="password"><br>
+    <input type="submit" value="Submit">
+</form>
+</fieldset>
+</center>
+</body>
+</html>
+
 <?php
 include 'creds.php';
 $conn = new mysqli($host, $user, $passwd, $db);
@@ -25,28 +46,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header('Location: index.php');
     }
     else{
-        echo "incorrect credentials";
+        $error_message = "incorrect credentials";
+        echo "
+        <center>
+        <br><br><fieldset id='errbox'><err>".$error_message."</err></fieldset>
+        </center>
+        ";
     }
 }
 
 $conn->close();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="stylesheet.css">
-</head>
-<body>
-<fieldset>
-<legend><h3><font face="times new" color="black">Login</font></h3></legend>
-<form action="" method="post"> <!-- Changed action to "" since the PHP script is in the same file -->
-    <div>Username:</div> <input type="text" name="name"><br>
-    <div>Password:</div> <input type="password" name="password"><br>
-    <input type="submit" value="Submit">
-</form>
-</fieldset>
-</body>
-</html>
