@@ -8,92 +8,162 @@
   <body bgcolor="#E0D1EF">
     <ul id="nav">
       <li><a href="index.html">HOME</a></li>
-      <li><a href="installer.html">INSTALL_GUIDE</a></li>
-      <li><a href="docs.html">DOCS</a></li>
+      <li><a href="installer.html">INSTALL-GUIDE</a></li>
+      <li><a href="docs.html">USAGE-DOCS</a></li>
+      <li><a href="docs-installer.html">INSTALLER-DOCS</a></li>
     </ul>
     <center><h1>HYPEREF-DOCS</h1></center>
     <fieldset>
-      <legend><h2>MANUAL INSTALL:</h2></legend>
-        <ul>
-            <li>Update system packages:
-                <p id="code">
-                    sudo apt update && sudo apt upgrade -y
-                </p>
-            </li>
-            <li>Install Dependencies:
-                <p id="code">
-                    sudo apt install apache2 mariadb-server php libapache2-mod-php php-mysql python3 openjdk-17-jre-headless -y
-                </p>
-            </li>
-            <li>Enable and start Apache:
-                <p id="code">
-                    sudo systemctl enable apache2<br>
-                    sudo systemctl start apache2
-                </p>
-            </li>
-            <li>Edit the crontab:
-                <p id="code">
-                    crontab -e
-                </p>
-                <strong>NOTE:</strong> If prompted to select an editor, select nano.<br><br>
-            </li>
-            <li>Enter this into the crontab:
-                <p id="code">
-                    */10 * * * * sudo chmod 0777 /var/www/html/ -R
-                </p>
-                save and exit now(ctrl+x,y,enter).<br><br>
-            </li>
-            <li>Create the database (edit it to your liking):
-                <p id="code">
-                    sudo mysql -u root -p < database.sql
-                </p>
-            </li>
-            <li>Clear the /var/www/html folder and copy everything inside the webserver directory to it.</li><br>
-            <li>Set directory permissions:
-                <p id="code">
-                    sudo chmod 0777 /var/www/html -R
-                </p>
-            </li>
-            <li>Restart Apache:
-                <p id="code">
-                    sudo systemctl restart apache2
-                </p>
-            </li>
-        </ul>
+      <legend><h2>LOGIN:</h2></legend>
+      Go to:
+      <p id="code">
+        http://(serverip)/admin/login.php
+      </p>
+      <br><br><center><img src="images/login.png"></center><br><br>
+      <ul>
+        <li>
+          Enter Web-Admin Username.
+        </li>
+        <li>
+          Enter Web-Admin Password.
+        </li>
+      </ul>
+      Click Submit.
     </fieldset>
     <fieldset>
-        <legend><h2>OFFLOADING DATABASE:</h2></legend>
+      <legend><h2>PRECOMP:</h2></legend>
+      Go to:
+      <p id="code">
+        http://(serverip)/admin/precontest.php
+      </p>
+      <h3>Adding Users:</h3>
+      <p>
+        To add a user, scroll to User Management:<br>
+        <br><br><center><img src="images/usermgmt.png"></center><br><br>
         <ul>
-            <li>Edit the install script:
-                <p id="code">
-                    nano installer/install
-                </p>
-            </li>
-            <li>Remove this line:
-                <p id="code">
-                    sudo mysql -u root -p < database.sql
-                </p>
-            </li>
-            <li>Find your DB-server's ip.<br><br>
-            </li>
-            <li>Edit creds.php:
-                <p id="code">
-                    nano webserver/admin/creds.php
-                </p>
-            </li>
-            <li>Change these lines:
-                <p id="code">
-                    $servername = "localhost";<br>
-                    $host = "localhost";
-                </p>
-                Change localhost to server's ip.<br><br>
-            </li>
-            <li>Copy over the database.sql file to the mysql server and run:
-                <p id="code">
-                    sudo mysql -u root -p < database.sql
-                </p>
-            </li>
+          <li>
+            Enter a School Name.
+          </li>
+          <li>
+            Enter a School-Code.
+          </li>
+          <li>
+            Enter a Password.
+          </li>
         </ul>
+        Click on Add User.<br>
+        <h4>Users Displayed in User List:</h4>
+        <br><br><center><img src="images/userlist.png"></center><br><br>
+      </p>
+      <h3>Adding Questions:</h3>
+      Scroll to Question Management:<br>
+      <br><br><center><img src="images/qnmgmt.png"></center><br><br>
+      <ul>
+        <li>
+          Enter a Question Number.
+        </li>
+        <li>
+          Enter a Question.
+        </li>
+        <li>
+          Enter a Score.
+        </li>
+      </ul>
+      Click on Add Question.
+      <h4>Questions Displayed in Question List:</h4>
+      <br><br><center><img src="images/qnlist.png"></center><br><br>
+      <h3>Adding Testcases:</h3>
+      Scroll to Question Management:<br>
+        <br><br><center><img src="images/tcmgmt.png"></center><br><br>
+        <ul>
+          <li>
+            Enter a Question Number.
+          </li>
+          <li>
+            Enter an Input.
+          </li>
+          <li>
+            Enter a Output.
+          </li>
+        </ul>
+        Click on Add Testcase.<br>
+        <strong><font color="red">NOTE: </font></strong>Each line of a multiline Input or output must be separated with a caret(^) as shown above.<br>
+        <h4>Questions Displayed in Question List:</h4>
+        <br><br><center><img src="images/tclist.png"></center><br><br>
+      <h3>Removing Entries:</h3>
+      Use the Delete button to remove entries.<br>
+      <br><br><center><img src="images/delbtn.png"></center><br><br>
+    </fieldset>
+    <fieldset>
+    <legend><h2>DURING-COMP:</h2></legend>
+    Go to:
+    <p id="code">
+      http://(serverip)/admin/during_contest.php
+    </p>
+    Or click "Contest Status" on the Nav-Bar.<br>
+    <br><br><center><img src="images/conteststatus.png"></center><br><br>
+    <h3>Starting Competition:</h3>
+    To start press the "Start" button under Contest Status.<br>
+    Check if status has changed.<br>
+    <br><br><center><img src="images/started.png"></center><br><br>
+    Check for Start-Marker.<br>
+    <br><br><center><img src="images/start-marker.png"></center><br><br>
+    <h3>Ending Competition:</h3>
+    To end press the "end" button under Contest Status.<br>
+    Check if status has changed.<br>
+    <br><br><center><img src="images/end.png"></center><br><br>
+    Check for End-Marker.<br>
+    <br><br><center><img src="images/end-marker.png"></center><br><br>
+    <h3>Getting Ready for another Session:</h3>
+    After the contest is over, Truncate or save the submissions.<br>
+    Go to Copy Table:<br>
+    <br><br><center><img src="images/cpytbl.png"></center><br>
+    <h3>Saving Submissions:</h3>
+    To save the table, enter a Save Slot between 1-10 and click save.<br> 
+    <h3>Truncating Submissions:</h3>
+    To Truncate ie:"clear without saving the tables" click the "Truncate" button.
+    <h3>Scoreboard Watching:</h3>
+    Go to:
+    <p id="code">
+      http://(serverip)/admin/scoreboard.php
+    </p>
+    <br><br><center><img src="images/scrbrd.png"></center><br><br>
+    <ul>
+      <li>
+        Scoreboard shows SchoolCode, Total Score, the questions attempted and the reward given for each question to a team.
+      </li>
+      <li>
+        Scoreboard by question shows the top three submissions per question with their time of submission.
+      </li>
+    </ul>
+    </fieldset>
+    <fieldset>
+    <legend><h2>POST-COMP:</h2></legend>
+    Go to:
+    <p id="code">
+      http://(serverip)/admin/batches.php
+    </p>
+    Or click "Batch Leaderboards" on the Nav-Bar.<br>
+    <br><br><center><img src="images/btchlbs.png"></center><br><br>
+    <h3>Viewing Saves:</h3>
+    Under Batch Submissions, the slots are displayed as Table S(slotno.) with system start/end markers.
+    <h3>Removing Saves:</h3>
+    Go to the server or ssh into it:<br>
+    <ul>
+      <li>
+        Run Mysql:<br>
+        <p id="code">
+          sudo mysql -A hyperef
+        </p>
+      </li>
+      <li>
+        Drop the Save:
+        <p id="code">
+          drop table S1;
+        </p>
+        <strong><font color="red">NOTE: </font></strong>Replace 1 with the SaveSlot.
+      </li>
+  </ul>
     </fieldset>
   </body>
 </html>

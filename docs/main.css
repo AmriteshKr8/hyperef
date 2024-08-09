@@ -60,4 +60,11 @@ fieldset{
     border-width: 3px;
     border-color: white;
     min-width: 0px;
+    font-family: monospace;
+}
+img{
+    align-self: center;
+    max-width: 60%;
+    width:80vw;
+    border-radius: 10px;
 }

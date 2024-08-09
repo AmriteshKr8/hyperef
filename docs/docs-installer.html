@@ -1,0 +1,100 @@
+<html id="body">
+  <head>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <title>
+    HYPEREF
+  </title>
+  <body bgcolor="#E0D1EF">
+    <ul id="nav">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="installer.html">INSTALL-GUIDE</a></li>
+        <li><a href="docs.html">USAGE-DOCS</a></li>
+        <li><a href="docs-installer.html">INSTALLER-DOCS</a></li>
+    </ul>
+    <center><h1>HYPEREF-DOCS</h1></center>
+    <fieldset>
+      <legend><h2>MANUAL INSTALL:</h2></legend>
+        <ul>
+            <li>Update system packages:
+                <p id="code">
+                    sudo apt update && sudo apt upgrade -y
+                </p>
+            </li>
+            <li>Install Dependencies:
+                <p id="code">
+                    sudo apt install apache2 mariadb-server php libapache2-mod-php php-mysql python3 openjdk-17-jre-headless -y
+                </p>
+            </li>
+            <li>Enable and start Apache:
+                <p id="code">
+                    sudo systemctl enable apache2<br>
+                    sudo systemctl start apache2
+                </p>
+            </li>
+            <li>Edit the crontab:
+                <p id="code">
+                    crontab -e
+                </p>
+                <strong>NOTE:</strong> If prompted to select an editor, select nano.<br><br>
+            </li>
+            <li>Enter this into the crontab:
+                <p id="code">
+                    */10 * * * * sudo chmod 0777 /var/www/html/ -R
+                </p>
+                save and exit now(ctrl+x,y,enter).<br><br>
+            </li>
+            <li>Create the database (edit it to your liking):
+                <p id="code">
+                    sudo mysql -u root -p < database.sql
+                </p>
+            </li>
+            <li>Clear the /var/www/html folder and copy everything inside the webserver directory to it.</li><br>
+            <li>Set directory permissions:
+                <p id="code">
+                    sudo chmod 0777 /var/www/html -R
+                </p>
+            </li>
+            <li>Restart Apache:
+                <p id="code">
+                    sudo systemctl restart apache2
+                </p>
+            </li>
+        </ul>
+    </fieldset>
+    <fieldset>
+        <legend><h2>OFFLOADING DATABASE:</h2></legend>
+        <ul>
+            <li>Edit the install script:
+                <p id="code">
+                    nano installer/install
+                </p>
+            </li>
+            <li>Remove this line:
+                <p id="code">
+                    sudo mysql -u root -p < database.sql
+                </p>
+            </li>
+            <li>Find your DB-server's ip.<br><br>
+            </li>
+            <li>Edit creds.php:
+                <p id="code">
+                    nano webserver/admin/creds.php
+                </p>
+            </li>
+            <li>Change these lines:
+                <p id="code">
+                    $servername = "localhost";<br>
+                    $host = "localhost";
+                </p>
+                Change localhost to server's ip.<br><br>
+            </li>
+            <li>Copy over the database.sql file to the mysql server and run:
+                <p id="code">
+                    sudo mysql -u root -p < database.sql
+                </p>
+            </li>
+        </ul>
+    </fieldset>
+  </body>
+</html>

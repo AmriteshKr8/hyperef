@@ -11,18 +11,20 @@ $file = 'uyi7y8787tyguhjhg876/test.txt';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['start'])) {
         file_put_contents($file, 'c2h1cnUgaG8gZ2F5YSBiZW5jaG8=');
-        $stmt = $conn->prepare("INSERT INTO submissions (schoolcode, question) VALUES (?, ?)");
-        $stmt->bind_param("si", $schoolcode, $question);
+        $stmt = $conn->prepare("INSERT INTO submissions (schoolcode, question, score) VALUES (?, ?, ?)");
+        $stmt->bind_param("sii", $schoolcode, $question, $score);
         $schoolcode = 'system';
         $question = 99;
+        $score = 10;
         $stmt->execute();
         $stmt->close();
     } elseif (isset($_POST['end'])) {
         file_put_contents($file, 'a2hhdGFtIGhvIGdheWEgYmVuY2hv');
-        $stmt = $conn->prepare("INSERT INTO submissions (schoolcode, question) VALUES (?, ?)");
-        $stmt->bind_param("si", $schoolcode, $question);
+        $stmt = $conn->prepare("INSERT INTO submissions (schoolcode, question, score) VALUES (?, ?, ?)");
+        $stmt->bind_param("sii", $schoolcode, $question, $score);
         $schoolcode = 'system';
         $question = 100;
+        $score = 10;
         $stmt->execute();
         $stmt->close();
     } elseif (isset($_POST['number'])) {

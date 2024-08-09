@@ -15,9 +15,9 @@ CREATE TABLE questions (
 
 CREATE TABLE submissions (
     schoolcode VARCHAR(50) NOT NULL,
-    time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    question INT(11) NOT NULL,
-    score int(255) NOT NULL
+    time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    question INT(11),
+    score int(255)
 );
 
 CREATE TABLE users (

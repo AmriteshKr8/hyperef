@@ -18,7 +18,7 @@ echo '<tr>
 <th>School</th>
 <th>Score</th>';
 for ($z = 1; $z <= $qno; $z++) {
-    echo '<th>Question' . $z . '</th>';
+    echo '<th>Q' . $z . '</th>';
 }
 echo '</tr>';
 
