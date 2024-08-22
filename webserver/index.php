@@ -15,6 +15,19 @@ function state(){
     }
 }
 
+function getMode(){
+    $filename = "admin/uyi7y8787tyguhjhg876/format.txt";    
+    $fp = fopen($filename, "r");
+    $contents = fread($fp, filesize($filename));
+    fclose($fp);
+    if ($contents == "blitz"){
+        return TRUE;
+    }
+    else{
+        return FALSE;
+    }
+}
+
 if (isset($_COOKIE['key'])) {
     $cookieValue = $_COOKIE['key'];
     $info = base64_decode($cookieValue);
@@ -454,20 +467,6 @@ function enterData($team, $fileno, $qnscore) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Fetch the current score for the team
-    $readscore = "SELECT SUM(score) as total_score FROM submissions WHERE schoolcode = ?";
-    $stmt = $conn->prepare($readscore);
-    $stmt->bind_param("s", $team);
-    $stmt->execute();
-    $resultscore = $stmt->get_result();
-    $score = 0;
-
-    if ($resultscore->num_rows > 0) {
-        $row = $resultscore->fetch_assoc();
-        $score = $row['total_score'];
-    }
-    $stmt->close();
-
     // Check if the team has already answered this question
     $read = "SELECT `time` FROM submissions WHERE schoolcode = ? AND question = ?";
     $stmt = $conn->prepare($read);
@@ -492,15 +491,18 @@ function enterData($team, $fileno, $qnscore) {
     $entries = $row['count'];
     $entries_read->close();
 
-    // Calculate the reward based on the number of entries
-    if ($entries === 0) {
-        $reward = $qnscore;
-    } elseif ($entries === 1) {
-        $reward = $qnscore - $qnscore / 4;
-    } elseif ($entries === 2) {
-        $reward = $qnscore - $qnscore / 2;
+    if(getMode()){
+        if ($entries === 0) {
+            $reward = $qnscore;
+        } elseif ($entries === 1) {
+            $reward = $qnscore - $qnscore / 4;
+        } elseif ($entries === 2) {
+            $reward = $qnscore - $qnscore / 2;
+        } else {
+            $reward = 0;
+        }
     } else {
-        $reward = 0;
+        $reward = $qnscore;
     }
 
     // Insert the new submission if reward is greater than 0

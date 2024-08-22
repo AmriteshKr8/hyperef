@@ -15,6 +15,13 @@ include 'creds.php';
                     document.getElementById('file-status').innerText = data.content;
                 });
         }
+        function fetchFileContent2() {
+            fetch('read_file_2.php')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('file-status-format').innerText = data.content;
+                });
+        }
 
         function fetchSubmissions() {
             fetch('submissions.php')
@@ -33,6 +40,7 @@ include 'creds.php';
             .then(data => {
                 document.getElementById('copy-confirmation').innerText = data;
                 fetchFileContent();
+                fetchFileContent2();
                 fetchSubmissions();
             });
         }
@@ -68,7 +76,24 @@ include 'creds.php';
                 sendFormData(formData);
             });
 
+            document.getElementById('blitz').addEventListener('click', function(e) {
+                e.preventDefault();
+                const formData = new FormData();
+                formData.append('blitz', 'blitz');
+                sendFormData(formData);
+                console.log('blitz');
+            });
+
+            document.getElementById('normal').addEventListener('click', function(e) {
+                e.preventDefault();
+                const formData = new FormData();
+                formData.append('normal', 'normal');
+                sendFormData(formData);
+                console.log('normal');
+            });
+
             setInterval(fetchFileContent, 1000);
+            setInterval(fetchFileContent2, 1000);
             setInterval(fetchSubmissions, 1000);
         });
     </script>
@@ -91,6 +116,17 @@ include 'creds.php';
     <input type="button" id="end-btn" value="end">
 </form>
 </fieldset>
+
+<fieldset>
+<legend><h1>Marking Format:</h1></legend>
+<p id="file-status-format">Loading...</p>
+
+<form id="marking">
+    <input type="button" id="blitz" value="Blitz">
+    <input type="button" id="normal" value="Normal">
+</form>
+</fieldset>
+
 <fieldset>
 <legend><h1>Copy Table</h1></legend>
 <form id="copy-table-form" method="post">

@@ -8,6 +8,8 @@ if ($conn->connect_error) {
 }
 
 $file = 'uyi7y8787tyguhjhg876/test.txt';
+$file2 = 'uyi7y8787tyguhjhg876/format.txt';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['start'])) {
         file_put_contents($file, 'c2h1cnUgaG8gZ2F5YSBiZW5jaG8=');
@@ -35,7 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Data copied to table $newSubmissions.";
     } elseif (isset($_POST['truncate'])) {
         $conn->query("TRUNCATE TABLE submissions");
-    }
+    } elseif (isset($_POST['blitz'])) {
+        file_put_contents($file2, 'blitz');
+    } elseif (isset($_POST['normal'])) {
+        file_put_contents($file2, 'normal');
+    } 
 }
 
 $conn->close();

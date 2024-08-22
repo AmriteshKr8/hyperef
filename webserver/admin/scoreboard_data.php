@@ -23,7 +23,7 @@ for ($z = 1; $z <= $qno; $z++) {
 echo '</tr>';
 
 // Get the school codes and their total scores
-$sql = "SELECT schoolcode, SUM(score) AS total_score FROM submissions WHERE schoolcode != 'system' GROUP BY schoolcode";
+$sql = "SELECT schoolcode, SUM(score) AS total_score FROM submissions WHERE schoolcode != 'system' GROUP BY schoolcode order by SUM(score) desc";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_assoc()) {
