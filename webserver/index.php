@@ -1,6 +1,6 @@
 <?php
-$NAME = "HYPEREF";
-$NAME_S = "H Y P E R E F";
+$NAME = "HYPEREF"; //change this
+$NAME_S = "H Y P E R E F"; //and this
 $error_message = "";
 function state(){
     $filename = "admin/uyi7y8787tyguhjhg876/test.txt";    

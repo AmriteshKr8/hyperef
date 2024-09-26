@@ -18,20 +18,20 @@
       Clone the git repository:<br>
       <p id="code">
         git clone https://github.com/AmriteshKr8/hyperef.git
-      </p id="code">
+      </p>
       Enter its directory:<br>
       <p id="code">
         cd hyperef
-      </p id="code">
+      </p>
       <h3>Configuration(Optional but Recommended):</h3>
       Change the web-password:<br> 
       <p id="code">
         nano installer/database.sql
-      </p id="code">
+      </p>
       Change the default username and password on this line:<br>
       <p id="code">
         insert into admins(name,password) values('admin','admin@!#+330');
-      </p id="code">
+      </p>
       Edit creds.php:
       <p id="code">
           nano webserver/admin/creds.php
@@ -40,12 +40,32 @@
       <p id="code">
         $password = "rootuser123#";<br>
         $passwd = "rootuser123#";
-      </p id="code">
+      </p>
       <strong>NOTE:</strong> Edit both lines to have matching passwords<br>
+      <h3>Personalization(Just do it):</h3>
+      Change the web-password:<br> 
+      <p id="code">
+        nano webserver/index.php
+      </p>
+      Change these lines(2,3):
+      <p id="code">
+        $NAME = "HYPEREF"; //change this<br>
+        $NAME_S = "H Y P E R E F"; //and this
+      </p>
+      Edit login.html:
+      <p id="code">
+        nano webserver/login.html
+      </p>
+      Change these lines(5,7,14):
+      <p id="code">
+        &lt;title&gt;Hyperef&lt;/title&gt;  &lt;!-- CHANGE THIS NAME --&gt;<br>
+        const word = 'H Y P E R E F'; // CHANGE THIS TOO<br>
+        &lt;h2 class="centered" id="heading2"&gt;&lt;font face="anurati"&gt;[  E V E N T N A M E  ]&lt;/font&gt;&lt;/h2&gt;  <!-- RENAME THIS DEFINITELY -->
+      </p>
       <h3>Run the installer:</h3>
       <p id="code">
         sudo sh installer/install
-      </p id="code">
+      </p>
       <strong><font color="red">NOTE: </font></strong>The installer will ask for the mysql-password during install.<br><br>
       <strong>Please refer to <a href="docs-installer.html">installer-docs</a> for advanced options</strong>
     </fieldset>
