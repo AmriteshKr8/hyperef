@@ -7,8 +7,8 @@ hyperef was created as an experimental webserver to be used at INFINITY 2K24.
 
 # The Crew:
   ## Programmers:
-    -Amritesh Kumar (Backend)
     -Syed Owais (Frontend)
+    -Amritesh Kumar (Backend)
   ## Coordinator:
     -Subroto Sharma
   ## Question-Making Team:
