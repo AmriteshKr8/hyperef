@@ -371,7 +371,6 @@ function handleFormSubmission($fileInput, $directoryName, $questionId, $qnscore)
     if (move_uploaded_file($uploadedFile['tmp_name'], $targetFilePath)) {
         $filename = $targetFilePath;
 
-        $executionCount = 0;
         $badcode = 0;
 
         // Fetch test cases from the database
@@ -425,7 +424,6 @@ function handleFormSubmission($fileInput, $directoryName, $questionId, $qnscore)
                 fclose($pipes[2]);
 
                 $return_value = proc_close($process);
-                $executionCount++;
                 $compare=array_diff($expectedOutput_array,$output_array);
                 if(sizeof($output_array) == sizeof($expectedOutput_array)){
                     if(sizeof($compare) > 0){
