@@ -9,6 +9,7 @@ if ($conn->connect_error) {
 
 $file = 'uyi7y8787tyguhjhg876/test.txt';
 $file2 = 'uyi7y8787tyguhjhg876/format.txt';
+$file3 = 'uyi7y8787tyguhjhg876/commsen.txt';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['start'])) {
@@ -41,6 +42,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         file_put_contents($file2, 'blitz');
     } elseif (isset($_POST['normal'])) {
         file_put_contents($file2, 'normal');
+    } elseif (isset($_POST['commson'])) {
+        file_put_contents($file3, 'yes');
+    } elseif (isset($_POST['commsoff'])) {
+        file_put_contents($file3, 'no');
     } 
 }
 

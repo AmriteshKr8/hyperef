@@ -22,7 +22,13 @@ include 'creds.php';
                     document.getElementById('file-status-format').innerText = data.content;
                 });
         }
-
+        function fetchFileContent3() {
+            fetch('read_file_3.php')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('file-status-comms').innerText = data.content;
+                });
+        }
         function fetchSubmissions() {
             fetch('submissions.php')
                 .then(response => response.text())
@@ -92,8 +98,25 @@ include 'creds.php';
                 console.log('normal');
             });
 
+            document.getElementById('commson').addEventListener('click', function(e) {
+                e.preventDefault();
+                const formData = new FormData();
+                formData.append('commson', 'commson');
+                sendFormData(formData);
+                console.log('commson');
+            });
+
+            document.getElementById('commsoff').addEventListener('click', function(e) {
+                e.preventDefault();
+                const formData = new FormData();
+                formData.append('commsoff', 'commsoff');
+                sendFormData(formData);
+                console.log('commsoff');
+            });
+
             setInterval(fetchFileContent, 1000);
             setInterval(fetchFileContent2, 1000);
+            setInterval(fetchFileContent3, 1000);
             setInterval(fetchSubmissions, 1000);
         });
     </script>
@@ -124,6 +147,16 @@ include 'creds.php';
 <form id="marking">
     <input type="button" id="blitz" value="Blitz">
     <input type="button" id="normal" value="Normal">
+</form>
+</fieldset>
+
+<fieldset>
+<legend><h1>Comms Staus:</h1></legend>
+<p id="file-status-comms">Loading...</p>
+
+<form id="comms">
+    <input type="button" id="commson" value="On">
+    <input type="button" id="commsoff" value="Off">
 </form>
 </fieldset>
 

@@ -28,6 +28,19 @@ function getMode(){
     }
 }
 
+function getCommsEn(){
+    $filename = "admin/uyi7y8787tyguhjhg876/commsen.txt";    
+    $fp = fopen($filename, "r");
+    $contents = fread($fp, filesize($filename));
+    fclose($fp);
+    if ($contents == "yes"){
+        return TRUE;
+    }
+    else{
+        return FALSE;
+    }
+}
+
 if (isset($_COOKIE['key'])) {
     $cookieValue = $_COOKIE['key'];
     $info = base64_decode($cookieValue);
@@ -263,7 +276,7 @@ $conn->close();
 
 // Display questions and scores
 echo '
-<html>
+<!DOCTYPE html>
 <title>
 '.$NAME.'
 </title>
@@ -311,6 +324,50 @@ echo '
 <hr>
 <br>
 ';
+
+if(getCommsEn()){
+    echo '
+<fieldset id="commbox">
+    <style>
+        textarea{
+        width: 100%;
+        padding: 8px;
+        margin: 10px 0;
+        background: rgba(0, 0, 0, 0);
+        border: 2px solid #ffffff;
+        color: #acffea;
+        border-radius: 10px;
+        font-family: "nasa", sans-serif;
+        font-size: 26px;
+        transition: background 0.3s, color 0.3s;
+    }
+    #replybox,#statusbox{
+        border: 6px solid #ffffffab;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    </style>
+    <form id="helpform" onsubmit="helpFormListener(event)">
+    Ask a question:
+        <textarea id="questionbox" name="question" rows="4" cols="50"></textarea><br>
+        <input type="hidden" name="tcode" value="'.$team.'">
+        <input type="submit" value="Send">
+    </form>
+    <fieldset id="replybox">
+    <legend>Reply:</legend>
+    <div id="response"></div>
+    </fieldset>
+    <br>
+    <fieldset id="statusbox">
+    <legend>Status:</legend>
+    <div id="status"></div>
+    </fieldset>
+</fieldset>
+<br>
+<hr>
+<br>
+';
+}
 foreach ($qns as $index => $question) {
     $questionNumber = $index + 1;
     echo "Q" . $questionNumber . ") " . htmlspecialchars($question) . "<br>";
@@ -637,5 +694,44 @@ function enterData($team, $fileno, $qnscore) {
         <script src="style/three.r134.min.js"></script>
         <script src="style/vanta.fog.min.js"></script>
         <script src="style/bg.js"></script>
+        <script>
+            function helpFormListener(){
+                event.preventDefault(); // Prevent form from submitting the traditional way
+                const formData = new FormData(document.getElementById("helpform"));
+                const qbox = document.getElementById("questionbox");
+                fetch('helpformsubmit.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('status').innerHTML = data;
+                    qbox.value = '';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        </script>
+        <script>
+            let prevdata = '';
+            function fetchResponse() {
+                    fetch('receive.php')
+                        .then(response => response.json())
+                        .then(data => {
+                            if(data.reply == null){}
+                            if(data.reply == 'Hello'){}
+                            console.log("data:"+data.reply);
+                            console.log("prevdata:"+prevdata);
+                            if (data.reply != prevdata){
+                                console.log('unequal');
+                                document.getElementById('response').innerText = data.reply;
+                            }
+                            prevdata = data.reply;
+                        });
+        }
+            fetchResponse();
+            setInterval(fetchResponse, 1000);
+        </script>
     </body>
 </html>
