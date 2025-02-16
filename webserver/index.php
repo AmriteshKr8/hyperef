@@ -131,7 +131,7 @@ else{
     }
     </style>
 </head>
-<body bgcolor="black">
+<body bgcolor="#3C3E42">
     <div id="vanta-bg">
     <center><fieldset id="spacer"><h1 id="heading">'.$NAME_S.'</h1></fieldset></center><br>
     <fieldset id="box"><legend><font id="head">RULES</font></legend>
@@ -145,9 +145,9 @@ else{
     </ul>
     </fieldset>
     </div>
-    <script src="style/three.r134.min.js"></script>
-    <script src="style/vanta.fog.min.js"></script>
-    <script src="style/bg.js"></script>
+    <!-- <script src="style/three.r134.min.js"></script> -->
+    <!-- <script src="style/vanta.fog.min.js"></script> -->
+    <!-- <script src="style/bg.js"></script> -->
 </body>
 </html>
     ';
@@ -283,7 +283,7 @@ echo '
 <head>
 <link rel="stylesheet" href="style/main.css">
 </head>
-<body>
+<body bgcolor="#3C3E42">
 <div id="vanta-bg"></div>
 <fieldset>
 <h1 id="heading">'.$NAME_S.'</h1>
@@ -691,9 +691,9 @@ function enterData($team, $fileno, $qnscore) {
             }
             setTimeout(displayerr(), 100);
         </script>
-        <script src="style/three.r134.min.js"></script>
+        <!-- <script src="style/three.r134.min.js"></script>
         <script src="style/vanta.fog.min.js"></script>
-        <script src="style/bg.js"></script>
+        <script src="style/bg.js"></script> -->
         <script>
             function helpFormListener(){
                 event.preventDefault(); // Prevent form from submitting the traditional way
