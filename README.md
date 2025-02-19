@@ -17,3 +17,5 @@ hyperef was created as an experimental webserver to be used at INFINITY 2K24.
     -Khimil Kumar
     -Kumar Vaibhav
     -Koyna Mridha
+#StarMap
+<iframe style="width:100%;height:auto;min-width:600px;min-height:400px;" src="https://star-history.com/embed?secret=Z2hwX1cyaGluQWJWZFFPYzZPakMwTWNEcGJLNW9xV0ZBZDRHZmJtUw==#AmriteshKr8/hyperef&Date" frameBorder="0"></iframe>
