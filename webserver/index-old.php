@@ -144,7 +144,7 @@ else{
     exit();
 }
 
-include 'creds.php';
+include '/admin/creds.php';
 $conn = new mysqli($host, $user, $passwd, $db);
 
 // Check connection
@@ -186,7 +186,7 @@ $stmt->close();
 $conn->close();
 ?>
 <?php
-include 'creds.php';
+include '/admin/creds.php';
 $conn = new mysqli($host, $user, $passwd, $db);
 
 // Check connection
@@ -228,7 +228,7 @@ $stmt->close();
 $conn->close();
 ?>
 <?php
-    include 'creds.php';
+    include '/admin/creds.php';
     $conn = new mysqli($host, $user, $passwd, $db);
 
     if ($conn->connect_error) {
@@ -682,7 +682,7 @@ function handleFormSubmission($fileInput, $directoryName, $questionId, $qnscore)
         $badcode = 0;
 
         // Fetch test cases from the database
-        include 'creds.php';
+        include '/admin/creds.php';
         $conn = new mysqli($host, $user, $passwd, $db);
 
         if ($conn->connect_error) {
@@ -766,7 +766,7 @@ function handleFormSubmission($fileInput, $directoryName, $questionId, $qnscore)
 
 function enterData($team, $fileno, $qnscore) {
     global $error_message;
-    include 'creds.php';
+    include '/admin/creds.php';
     $conn = new mysqli($host, $user, $passwd, $db);
     $score = 0;
 

@@ -154,7 +154,7 @@ else{
     exit();
 }
 
-include 'creds.php';
+include '/admin/creds.php';
 $conn = new mysqli($host, $user, $passwd, $db);
 
 // Check connection
@@ -197,7 +197,7 @@ $conn->close();
 ?>
 
 <?php
-include 'creds.php';
+include '/admin/creds.php';
 $conn = new mysqli($host, $user, $passwd, $db);
 
 // Check connection
@@ -241,13 +241,13 @@ $conn->close();
 
 <?php
 
-// Check if creds.php exists and is readable
-if (!file_exists('creds.php') || !is_readable('creds.php')) {
-    die('Error: creds.php file is missing or not readable.');
+// Check if /admin/creds.php exists and is readable
+if (!file_exists('/admin/creds.php') || !is_readable('/admin/creds.php')) {
+    die('Error: /admin/creds.php file is missing or not readable.');
 }
 
-// Include the creds.php file
-include 'creds.php';
+// Include the /admin/creds.php file
+include '/admin/creds.php';
 
 // Establish database connection
 $conn = new mysqli($host, $user, $passwd, $db);
@@ -431,7 +431,7 @@ function handleFormSubmission($fileInput, $directoryName, $questionId, $qnscore)
         $badcode = 0;
 
         // Fetch test cases from the database
-        include 'creds.php';
+        include '/admin/creds.php';
         $conn = new mysqli($host, $user, $passwd, $db);
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
@@ -515,7 +515,7 @@ function handleFormSubmission($fileInput, $directoryName, $questionId, $qnscore)
 
 function enterData($team, $fileno, $qnscore) {
     global $error_message;
-    include 'creds.php';
+    include '/admin/creds.php';
     $conn = new mysqli($host, $user, $passwd, $db);
 
     if ($conn->connect_error) {

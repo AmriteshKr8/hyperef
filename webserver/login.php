@@ -1,5 +1,5 @@
 <?php
-include 'creds.php';
+include '/admin/creds.php';
 $conn = new mysqli($host, $user, $passwd, $db);
 
 if ($conn->connect_error) {

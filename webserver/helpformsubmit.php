@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Invalid Request";
         exit();
     }
-    include 'creds.php';
+    include '/admin/creds.php';
     $conn = new mysqli($host, $user, $passwd, $db);
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);

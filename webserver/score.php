@@ -9,7 +9,7 @@ if (isset($_COOKIE['key'])) {
     $team = $schoolcode;
 }
 
-include 'creds.php';
+include '/admin/creds.php';
 $conn = new mysqli($host, $user, $passwd, $db);
 
 $auth = "SELECT password FROM users WHERE schoolcode = ?";

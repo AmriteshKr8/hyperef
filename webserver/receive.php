@@ -6,7 +6,7 @@ if (isset($_COOKIE['key'])) {
     $name = $info_data[0];
     $pass = $info_data[1];
 }
-include 'admin/creds.php';
+include '/admin/creds.php';
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
