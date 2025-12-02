@@ -5,8 +5,45 @@ include 'creds.php';
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="style/main.css">
     <title>STATUS</title>
+    <style>
+        nav {
+            background-color: #333;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        nav li {
+            float: left;
+        }
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav li a:hover {
+            background-color: #111;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
     <script>
         function fetchFileContent() {
             fetch('read_file.php')
@@ -15,25 +52,28 @@ include 'creds.php';
                     document.getElementById('file-status').innerText = data.content;
                 });
         }
-        function fetchFileContent2() {
-            fetch('read_file_2.php')
-                .then(response => response.json())
+
+        function fetchLeaderboard() {
+            fetch('leaderboard.php')
+                .then(response => response.text())
                 .then(data => {
-                    document.getElementById('file-status-format').innerText = data.content;
+                    document.getElementById('leaderboard').innerHTML = data;
                 });
         }
-        function fetchFileContent3() {
-            fetch('read_file_3.php')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('file-status-comms').innerText = data.content;
-                });
-        }
+
         function fetchSubmissions() {
             fetch('submissions.php')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('submissions').innerHTML = data;
+                });
+        }
+
+        function fetchOccupiedSlots() {
+            fetch('occupied_slots.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('occupied-slots').innerHTML = data;
                 });
         }
 
@@ -45,8 +85,8 @@ include 'creds.php';
             .then(response => response.text())
             .then(data => {
                 document.getElementById('copy-confirmation').innerText = data;
+                fetchOccupiedSlots();
                 fetchFileContent();
-                fetchFileContent2();
                 fetchSubmissions();
             });
         }
@@ -82,42 +122,10 @@ include 'creds.php';
                 sendFormData(formData);
             });
 
-            document.getElementById('blitz').addEventListener('click', function(e) {
-                e.preventDefault();
-                const formData = new FormData();
-                formData.append('blitz', 'blitz');
-                sendFormData(formData);
-                console.log('blitz');
-            });
-
-            document.getElementById('normal').addEventListener('click', function(e) {
-                e.preventDefault();
-                const formData = new FormData();
-                formData.append('normal', 'normal');
-                sendFormData(formData);
-                console.log('normal');
-            });
-
-            document.getElementById('commson').addEventListener('click', function(e) {
-                e.preventDefault();
-                const formData = new FormData();
-                formData.append('commson', 'commson');
-                sendFormData(formData);
-                console.log('commson');
-            });
-
-            document.getElementById('commsoff').addEventListener('click', function(e) {
-                e.preventDefault();
-                const formData = new FormData();
-                formData.append('commsoff', 'commsoff');
-                sendFormData(formData);
-                console.log('commsoff');
-            });
-
             setInterval(fetchFileContent, 1000);
-            setInterval(fetchFileContent2, 1000);
-            setInterval(fetchFileContent3, 1000);
+            setInterval(fetchLeaderboard, 1000);
             setInterval(fetchSubmissions, 1000);
+            setInterval(fetchOccupiedSlots, 1000);
         });
     </script>
 </head>
@@ -135,41 +143,20 @@ include 'creds.php';
 <p id="file-status">Loading...</p>
 
 <form id="start-end-form">
-    <input type="button" id="start-btn" value="Start">
-    <input type="button" id="end-btn" value="end">
+    <button id="start-btn">Start</button>
+    <button id="end-btn">End</button>
 </form>
 </fieldset>
-
 <fieldset>
-<legend><h1>Marking Format:</h1></legend>
-<p id="file-status-format">Loading...</p>
-
-<form id="marking">
-    <input type="button" id="blitz" value="Blitz">
-    <input type="button" id="normal" value="Normal">
-</form>
-</fieldset>
-
-<fieldset>
-<legend><h1>Comms Staus:</h1></legend>
-<p id="file-status-comms">Loading...</p>
-
-<form id="comms">
-    <input type="button" id="commson" value="On">
-    <input type="button" id="commsoff" value="Off">
-</form>
-</fieldset>
-
-<fieldset>
-<legend><h1>Copy Table</h1></legend>
+<legend><h1>Copy Leaderboard Table</h1></legend>
 <form id="copy-table-form" method="post">
-    <label for="number">Save Slot:</label>
+    <label for="number">Enter a number:</label>
     <input type="number" id="number" name="number" required>
-    <input type="submit" value="Save">
+    <button type="submit">Copy Table</button>
 </form>
 
 <form id="truncater">
-    <input type="button" id="truncate-current" value="Truncate">
+    <button id="truncate-current">Truncate</button>
 </form>
 </fieldset>
 <fieldset>
@@ -177,5 +164,10 @@ include 'creds.php';
 <div id="submissions">Loading...</div>
 <p id="copy-confirmation"></p>
 </fieldset>
+<fieldset>
+<legend><h1>Occupied Slots</h1></legend>
+<div id="occupied-slots">Loading...</div>
+<div id="leaderboard"></div>
+    </fieldset>
 </body>
 </html>

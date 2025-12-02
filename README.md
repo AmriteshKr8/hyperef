@@ -1,29 +1,39 @@
-# HYPEREF
-A completely web based programming jury software where marks are given on the criteria of first submissions.
+<img src="assets/banner.png">
 
-Docs at: https://amriteshkr8.github.io/hyperef/index.html
+### HYPEREF
+A completely web based programming jury software where marks are given on the criteria of first submissions, created as the primary webserver for INFINITY 2K24's programming events.
 
-hyperef was created as an experimental webserver to be used at INFINITY 2K24.
+---
 
-# The Crew:
-  ## Programmers:
-    -Syed Owais (Frontend)
-    -Amritesh Kumar (Backend)
-  ## Coordinator:
-    -Subroto Sharma
-  ## Question-Making Team:
-    -Swati Nandi
-    -Swaraj Paul
-    -Khimil Kumar
-    -Kumar Vaibhav
-    -Koyna Mridha
+### Quickstart
 
-## Star History
+```bash
+git clone https://github.com/AmriteshKr8/hyperef.git
+cd hyperef
+sudo sh installer/install
+```
+Refer to the <a href="https://amriteshkr8.github.io/hyperef/installer.html">install guide</a> for the full install and setup guide
 
-<a href="https://star-history.com/#AmriteshKr8/hyperef&Date">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=AmriteshKr8/hyperef&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=AmriteshKr8/hyperef&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=AmriteshKr8/hyperef&type=Date" />
- </picture>
-</a>
+---
+
+### Features
+
+- <b>Multi-Format</b>
+    - <b>Blitz:</b> Only the initial three correct submissions for each question are rewarded. The reward decreases after each submission.
+    - <b>Normal:</b> All correct submissions are rewarded equally. No limit on the number of submissions.
+- <b>Multi-Language Support</b> - Hyperef evaluates answers written in both Java and Python, offering flexibility for participants.
+- <b>Automatic Code Saving</b> - Saves a copy of the submissions for review/clarifications after the competition.
+- <b>Based on PHP</b> - A PHP base ensures robust and efficient operation.
+- <b>Automated Installation</b> - Hyperef is installed using a single script that sets up everything within minutes.
+- <b>Focus on Core Principles</b>
+    - <b>Redundancy</b> - Multiple layers of verification and backup to ensure reliability.
+    - <b>Simplicity</b> - User-friendly interface and straightforward submission process.
+    - <b>Stability</b> - Designed to handle high volumes of submissions without compromising performance.
+    - <b>Security</b> - Comprehensive measures in place to protect user data and prevent unauthorized access.
+    - <b>Ease of Use</b> - Intuitive design that makes it easy for participants to submit their solutions and track their progress.
+
+---
+
+### Docs & Guides
+
+Docs and guides available at <a href="https://amriteshkr8.github.io/hyperef/docs/index.html">amriteshkr8.github.io/hyperef/docs</a>

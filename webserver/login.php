@@ -1,5 +1,8 @@
 <?php
-include '/admin/creds.php';
+$host = "localhost";
+$user = "root";
+$passwd = "155988";
+$db = "infinity";
 $conn = new mysqli($host, $user, $passwd, $db);
 
 if ($conn->connect_error) {

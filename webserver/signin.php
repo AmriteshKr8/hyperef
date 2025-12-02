@@ -34,109 +34,210 @@ else{
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lobby</title>
-    <script src="style/three.r134.min.js"></script>
-    <script src="style/vanta.net.min.js"></script>
+    <title>CodeBreakers</title>
     <style>
-    body, html {
-        height: 100%;
-        margin: 0;
-    }
-    #bruh {
-        height: 100%;
-        align-items: center;
-        justify-content: center;
-        color: #ffffff;
-        position: relative;
-    }
-    #spacer{
-        border-width: 0;
-        height:6vw;
-        padding-bottom:3vh;
-    }
-    @font-face {
-        font-family: "anurati";
-        src: url("style/anurati.otf");
-    }
-    @font-face {
-        font-family: "minecraft";
-        src: url("style/minecraft.otf");
-    }
-    @font-face {
-        font-family: "nasa";
-        src: url("style/nasalisation.otf");
-    }
-    #heading{
-        color:white;
-        font-size:6vw;
-        font-family:anurati;
-    }
-    #head{
-        font-family:nasa;
-        font-size:5vw;
-        color:rgb(111, 0, 255);
-    }
-    ul {
-        list-style: none;
-        margin-left: 0;
-        padding-top: 2vh;
-        padding-left: 0;
-    }
-
-    li {
-        padding-left: 1em;
-        text-indent: -1em;
-        font-size:30px;
-        padding:20px;
-
-    }
-
-    li:before {
-        content: ">";
-        padding-right: 6px;
-        padding-left: 3vw;
-    }
-
-    #box{
-        border: 6px solid #ffffffab;
-        margin: 4vw 4vw;
-        border-radius: 20px;
-        font-family: nasa;
-    }
+        @font-face {
+            font-family: "fauna";
+            src: url("styles/fauna.ttf");
+        }
+        @font-face {
+            font-family: "sfpro";
+            src: url("styles/sfpro.otf");
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #snowfall {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #261325;
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+        .content {
+            position: relative; /* Ensures content stacks on top of background */
+            z-index: 1; /* Makes sure content is above background */
+            padding: 20px;
+            color: white;
+            text-align: center;
+            max-width: 100vw;
+            max-height: 100vh;
+            margin-top: 5rem;
+        }
+        h{
+            font-size: 3.5rem;
+        }
+        #refresh{
+            max-width: auto;
+            padding: 20px 30px;
+            border-radius: 10px;
+            font-size: 20px;
+            background-color: #333333;
+            color: #ffffff;
+            border-width: 0;
+            transition: background-color 200ms ease;
+        }
+        #refresh:hover{
+            cursor: pointer;
+            background-color: #000000;
+            transition: background-color 200ms ease;
+        }
+        #rules{
+            margin-top: 3rem;
+            display: flex;
+            justify-content: center;
+        }
+        fieldset{
+            min-width: 80vw;
+            font-family: "sfpro";
+            font-size: 1.5rem;
+        }
     </style>
 </head>
-<body bgcolor="black">
-    <div id="bruh">
-    <center><fieldset id="spacer"><h1 id="heading">H Y P E R E F</h1></fieldset></center><br>
-    <fieldset id="box"><legend><font id="head">RULES</font></legend>
-    <ul>
-    <li>NO TEXT TO BE PRINTED WHILE TAKING INPUT(S).</li>
-    <li>DO NOT CLOSE BROWSER DURING CONTEST.</li>
-    <li>ONLY FIRST THREE SUBMISSIONS WILL BE REWARDED.</li>
-    <li>NUMBER OF ATTEMPTS ARE UPDATED IN REAL TIME.</li>
-    <li>CARRYING/USE OF ANY ELECTRONIC DEVICE IS PROHIBITED.</li>
-    <li>GOOD LUCK!</li>
-    </ul>
-    </fieldset>
+<body>
+    <div id="snowfall"></div>
+
+    <div class="content">
+        <h><font color="white" face="fauna">CodeBreakers</font></h>
+        <div id="rules">
+            <fieldset>
+                <legend><font size="20px" face="fauna">Rules</font></legend>
+                <p>
+                    No text to be printed while taking input(s).<br>
+                    Do not close the app during the contest.<br>
+                    Only first three submissions will be rewarded.<br>
+                    Number of attempts are updated in real time.<br>
+                    Carrying/Use of any electronic device is prohibited.<br>
+                    Click the "Start" button at the bottom to start the contest.<br>
+                    <br><br>GOOD LUCK!<br>
+                </p>
+            </fieldset>
+        </div><br>
+        <button onclick="refreshPage()" id="refresh">Start</button>
     </div>
-    <script src="style/three.r134.min.js"></script>
-    <script src="style/vanta.fog.min.js"></script>
+
+    <script src="styles/particles.min.js"></script>
     <script>
-    VANTA.FOG({
-    el: "#bruh",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    highlightColor: 0xff0505,
-    midtoneColor: 0xfc,
-    lowlightColor: 0xcd00ff,
-    baseColor: 0x141414,
-    blurFactor: 0.90,
-    speed: 2.40,
-    zoom: 1.10
-    })
+        particlesJS("snowfall", {
+            "particles": {
+                "number": {
+                    "value": 100,
+                    "density": {
+                        "enable": true,
+                        "value_area": 500
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 5,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 10,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": false,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 3,
+                    "direction": "bottom",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "window",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": false,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 300,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 150,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": false
+        });
+
+        function refreshPage() {
+            location.reload(); // Reloads the current page
+        }
     </script>
 </body>
 </html>
@@ -144,7 +245,10 @@ else{
     exit();
 }
 
-include '/admin/creds.php';
+$host = "localhost";
+$user = "root";
+$passwd = "155988";
+$db = "infinity";
 $conn = new mysqli($host, $user, $passwd, $db);
 
 // Check connection
@@ -186,7 +290,9 @@ $stmt->close();
 $conn->close();
 ?>
 <?php
-include '/admin/creds.php';
+$user = "root";
+$passwd = "155988";
+$db = "infinity";
 $conn = new mysqli($host, $user, $passwd, $db);
 
 // Check connection
@@ -228,7 +334,10 @@ $stmt->close();
 $conn->close();
 ?>
 <?php
-    include '/admin/creds.php';
+    $host = "localhost";
+    $user = "root";
+    $passwd = "155988";
+    $db = "infinity";
     $conn = new mysqli($host, $user, $passwd, $db);
 
     if ($conn->connect_error) {
@@ -290,19 +399,15 @@ $conn->close();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>hyperef</title>
+    <title>Codebreakers</title>
     <style>
         @font-face {
             font-family: "anurati";
-            src: url("style/anurati.otf");
-        }
-        @font-face {
-            font-family: "minecraft";
-            src: url("style/minecraft.otf");
+            src: url("style/fauna.ttf");
         }
         @font-face {
             font-family: "nasa";
-            src: url("style/nasalisation.otf");
+            src: url("style/sfpro.otf");
         }
         body::-webkit-scrollbar{
             width: 0rem;
@@ -338,53 +443,49 @@ $conn->close();
         input[type=submit], input[type=button]{
             max-width: auto;
             padding: 10px 10px;
-            font-family: nasa;
+            font-family: "sfpro";
             font-size: 20px;
-            background-color: #ffffff00;
-            color: #FFF;
-            border: 6px solid #ffffffab;
-            border-radius:10px;
-            margin:10px;
+            background-color: rgba(0,0,0,0);
+            color: #fff;
+            border: 2px solid #fff;
+	    border-radius: 5px;
+	    transition: background 200ms ease;
         }
         input[type=submit]:hover, input[type=button]:hover{
-            background: #000;
-            color: #FFF;
-            border: 6px solid #FFF;
+            background: #4da1a9;
+            color: black;
+	    transition: background 200ms ease;
+	    cursor: pointer;
         }
         .file-input {
             display:none;
         }
         .file-drop-zone {
-            background: #ffffff00;
-            color: #FFF;
-            border: 6px solid #ffffffab;
-            border-radius:10px;
-            padding: 10px;
-            margin: 17px 0;
+            border: 2px solid #fff;
+	    border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
             text-align: center;
-            font-size:24px;
-            font-family: "nasa";
+            font-size: 1em;
             cursor: pointer;
+	    transition: background 200ms ease;
         }
         .file-drop-zone.dragover {
-            background: #000;
-            color: #FFF;
-            border: 6px solid #FFF;
+            background: #4da1a9;
+            color: black;
+	    transition: background 200ms ease;
         }
         .file-drop-zone:hover {
-            background: #000;
-            color: #FFF;
-            border: 6px solid #FFF;
+            background: #4da1a9;
+            color: black;
+	    transition: background 200ms ease;
         }
         table {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 10px 10px; 
-            margin-top: -10px;
+            border-collapse: collapse;
         }
         table, th, td {
-            border: 6px solid #ffffffab;
-            border-radius: 10px;
+            border: 6px solid #fff;
         }
         th, td {
             padding: 20px;
@@ -395,18 +496,21 @@ $conn->close();
         }
         #heading{
             padding:0px;
-            color:#FFF;
+            color:#fff;
             font-family:"anurati";
-            font-size:7.5vw;
+            font-size:4.5vw;
             text-align: center;
         }
-        #errbox{
-            border: 6px solid #ffffffab;
-            border-radius: 10px;
-            color:yellow;
+        #errorbox{
+            border:6px solid #fff;
+            color:red;
             font-family: "nasa";
             font-size:24px;
             margin:17px;
+            width:92vw;
+        }
+        h{
+            font-size: 3.5rem;
         }
         hr{
             height: 0px;
@@ -424,7 +528,7 @@ $conn->close();
 <body>
 <div id="vanta-bg"></div>
 <fieldset>
-<h1 id='heading'>H Y P E R E F</h1>
+<h1 id='heading'>C O D E B R E A K E R S</h1>
 <hr>
 <fieldset>
     <h1 id="schoolnamedisplay">Live Scoreboard:</h1>
@@ -516,8 +620,8 @@ $conn->close();
         <input type="submit" value="Submit"><a href="pdfs/5.pdf"><input type="button" value="Info"></a>
     </form>
 </fieldset>
-<script src="style/three.r134.min.js"></script>
-<script src="style/vanta.fog.min.js"></script>
+<script src="style/p5.min.js"></script>
+<script src="style/vanta.topology.min.js"></script>
 <script>
 function fetchScoreboard() {
     fetch(`score.php`)
@@ -621,21 +725,22 @@ setInterval(fetchAttempts, 1000);
 fetchScoreboard();
 fetchAttempts();
 
-VANTA.FOG({
-  el: "#vanta-bg",
-  mouseControls: true,
-  touchControls: true,
-  gyroControls: false,
-  minHeight: 200.00,
-  minWidth: 200.00,
-  highlightColor: 0xff0505,
-  midtoneColor: 0xfc,
-  lowlightColor: 0xcd00ff,
-  baseColor: 0x141414,
-  blurFactor: 0.70,
-  speed: 2.40,
-  zoom: 1.10
-})
+var code="#4da1a9"   /*<--- change this for dot-wave color #32ff00*/
+    var ball="#ffffff"   /*<--- change this for center ball color #ffffff*/
+    var back="#261325"   /*<--- change this for background color #222222*/
+    VANTA.TOPOLOGY({
+        el: "#vanta-bg",
+        mouseControls: true,
+        touchControls: false,
+        gyroControls: false,
+        minHeight: 100.00,
+        minWidth: 100.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+	    color: code,
+        color2: ball,
+        backgroundColor: back,
+    })
 </script>
 
 <?php
@@ -682,7 +787,10 @@ function handleFormSubmission($fileInput, $directoryName, $questionId, $qnscore)
         $badcode = 0;
 
         // Fetch test cases from the database
-        include '/admin/creds.php';
+        $host = "localhost";
+        $user = "root";
+        $passwd = "155988";
+        $db = "infinity";
         $conn = new mysqli($host, $user, $passwd, $db);
 
         if ($conn->connect_error) {
@@ -757,7 +865,8 @@ function handleFormSubmission($fileInput, $directoryName, $questionId, $qnscore)
         if ($badcode == 0) {
             enterData($directoryName, $fileInput, $qnscore);
         } else {
-            $error_message = "Wrong Output on question " . $fileInput . ".";
+            //$error_message = "Wrong Output on question " . $fileInput . ".";
+            $error_message = "Expected:".$expectedOutput."<br>got:".$output;
         }
     } else {
         $error_message = "Please select a file.";
@@ -766,7 +875,10 @@ function handleFormSubmission($fileInput, $directoryName, $questionId, $qnscore)
 
 function enterData($team, $fileno, $qnscore) {
     global $error_message;
-    include '/admin/creds.php';
+    $host = "localhost";
+    $user = "root";
+    $passwd = "155988";
+    $db = "infinity";
     $conn = new mysqli($host, $user, $passwd, $db);
     $score = 0;
 

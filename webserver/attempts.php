@@ -1,38 +1,23 @@
 <?php
-include '/admin/creds.php';
+$host = "localhost";
+$user = "root";
+$passwd = "155988";
+$db = "infinity";
 $conn = new mysqli($host, $user, $passwd, $db);
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
-// Get the number of questions from the query parameter
-$numQuestions = isset($_GET['numQuestions']) ? intval($_GET['numQuestions']) : 0;
-
-// Prepare an array to hold the results
 $out = [];
-
-// Query for each question based on the number
-for ($i = 1; $i <= $numQuestions; $i++) {
-    // Prepare the SQL query dynamically
-    $entries_read = $conn->prepare("SELECT COUNT(*) AS attempts FROM submissions WHERE question = ?");
-    $entries_read->bind_param("i", $i);
+for($i=1;$i<6;$i++){
+    $entries_read = $conn->prepare("SELECT q$i FROM leaderboard WHERE q$i IS NOT NULL");
     $entries_read->execute();
-    $result = $entries_read->get_result();
-    
-    // Fetch the result
-    $row = $result->fetch_assoc();
-    $out['qa' . $i] = $row['attempts'];
-    
-    // Close the statement
-    $entries_read->close();
+    $insertrez = $entries_read->get_result();
+    $entries = $insertrez->num_rows;
+    $out['qa'.$i] = $entries;
 }
-
-// Encode the result as JSON and output it
-header('Content-Type: application/json');
 echo json_encode($out);
-
-// Close the database connection
+$entries_read->close();
 $conn->close();
 ?>

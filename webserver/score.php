@@ -9,7 +9,10 @@ if (isset($_COOKIE['key'])) {
     $team = $schoolcode;
 }
 
-include '/admin/creds.php';
+$host = "localhost";
+$user = "root";
+$passwd = "155988";
+$db = "infinity";
 $conn = new mysqli($host, $user, $passwd, $db);
 
 $auth = "SELECT password FROM users WHERE schoolcode = ?";
@@ -33,12 +36,8 @@ if (empty($team)) {
     die(json_encode(array('error' => 'Team code not provided')));
 }
 
-$sql = "SELECT id FROM questions";
-$result = $conn->query($sql);
-$qno = $result->num_rows;
-
 // Prepare statement to avoid SQL injection
-$stmt = $conn->prepare("SELECT schoolcode, question FROM submissions WHERE schoolcode = ? GROUP BY question");
+$stmt = $conn->prepare("SELECT schoolcode, score, q1, q2, q3, q4, q5 FROM leaderboard WHERE schoolcode = ?");
 $stmt->bind_param('s', $team);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -48,17 +47,27 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $data = array(
         'schoolcode' => $row['schoolcode'],
+        'q1' => "Not attempted",
+        'q2' => "Not attempted",
+        'q3' => "Not attempted",
+        'q4' => "Not attempted",
+        'q5' => "Not attempted",
     );
-
-    // Initialize all questions as not attempted
-    for ($s = 1; $s <= $qno; $s++) {
-        $data['q' . $s] = "NA";
+    if($row['q1'] != NULL){
+        $data['q1'] = "Accepted";
     }
-
-    // Update the data with the results from the database
-    do {
-        $data['q' . $row['question']] = "Accepted";
-    } while ($row = $result->fetch_assoc());
+    if($row['q2'] != NULL){
+        $data['q2'] = "Accepted";
+    }
+    if($row['q3'] != NULL){
+        $data['q3'] = "Accepted";
+    }
+    if($row['q4'] != NULL){
+        $data['q4'] = "Accepted";
+    }
+    if($row['q5'] != NULL){
+        $data['q5'] = "Accepted";
+    }
 
 } else {
     $data['error'] = 'No results found';
@@ -69,3 +78,4 @@ $stmt->close();
 $conn->close();
 
 ?>
+

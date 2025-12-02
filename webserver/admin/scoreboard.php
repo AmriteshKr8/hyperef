@@ -9,9 +9,17 @@ include 'creds.php';
 <meta charset="UTF-8">
 <title>User & Question Management</title>
 <script src="scripts/jquery.min.js"></script>
-<link rel="stylesheet" href="style/main.css">
+<style>
+    /* Basic styling for demonstration */
+    body { font-family: Arial, sans-serif; }
+    fieldset { margin-bottom: 20px; }
+    legend { font-weight: bold; }
+    table, th, td { border: 1px solid #ddd; border-collapse: collapse; padding: 10px; }
+    th, td:first-child { width: 150px; }
+</style>
 </head>
 <body>
+
 <nav>
     <ul>
         <li><a href="precontest.php">Database Management</a></li>
@@ -20,6 +28,34 @@ include 'creds.php';
         <li><a href="batches.php">Batch Leaderboards</a></li>
     </ul>
 </nav>
+<style>
+nav {
+    background-color: #333;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #111;
+}
+</style>
 
 <fieldset>
     <legend>Scoreboard</legend>

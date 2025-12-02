@@ -1,0 +1,162 @@
+:root{
+    --code: #4da1a9;   /*<--- change this for main color #32ff00*/
+    --navgrey: #ffffff;   /*<--- change this for secondary color #222222*/
+    --text: #ffffff; /*<--- change this for text color #ffffff*/
+}
+
+@font-face{
+    font-family: "fauna";
+    src: url("fauna.ttf");
+}
+@font-face{
+    font-family: "sfpro";
+    src: url("sfpro.otf");
+}
+
+body{
+    margin: 0;
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar{
+    width: 0rem;
+}
+#rb{
+    height: 100vh;
+    width: 100vw;
+    z-index: 0;
+    position: fixed;
+    margin: 0;
+}
+.tp{
+    min-width: 100%;
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    z-index: 2;
+}
+.tp fauna{
+    font-size: 4.4vw;
+    margin-left: 4vw;
+}
+.wr{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.wr fauna{
+    font-size: 4vw;
+    padding-bottom: 1.5rem;
+}
+fauna{
+    font-family: "fauna";
+    color: var(--text);
+}
+sfpro{
+    font-family: "sfpro";
+    color: var(--text);
+    font-size: 2vw;
+}
+
+.navbar-mobile{
+    display: none;
+}
+.navbar{
+    width: 100vw;
+    height: 4.5rem;
+    position: fixed;
+    background-color: rgba(0,0,0,0.0);
+    top: 0;
+    z-index: 3;
+    margin-top: 1rem;
+}
+.navbar-nav{
+    justify-content: right;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.nav-item{
+    display: flex;
+    align-items: center;
+    height: 3.5rem;
+    color: var(--navgrey);
+    background-color: rgba(0,0,0,0);
+    text-align: center;
+    border-radius: 30px;
+    transition: background-color 200ms ease;
+    margin-right: 1rem;
+}
+link-text{
+    color: var(--text);
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-family: "fauna";
+    font-weight: 400;
+    font-size: 1.1rem;
+    justify-content: center;
+    transition: color 200ms ease;
+}
+h{
+    font-family: "fauna";
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-left: 2rem;
+    left: 0;
+    position: fixed;
+}
+
+.nav-item:hover{
+    cursor: pointer;
+    background-color: var(--code);
+    transition: background-color 200ms ease;
+}
+.nav-item:hover link-text{
+    color: var(--navgrey);
+    transition: color 200ms ease;
+}
+
+@media only screen and (max-width: 600px){
+
+    .tp fauna{
+        font-size: 7vw;
+    }
+    .navbar-mobile{
+        display: block;
+        bottom: 0;
+        z-index: 3;
+        position: fixed;
+        width: 100vw;
+    }
+    .navbar .nav-item{
+        display: none;
+    }
+    .navbar-mobile .navbar-nav{
+        justify-content: center;
+
+    }
+    .navbar-mobile .nav-item{
+        border-radius: 0px;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+        height: 3rem;
+    }
+    h{
+        margin-top: 2rem;
+        margin-left: 1rem;
+    }
+    .wr fauna{
+        font-size: 4.5vw;
+    }
+}

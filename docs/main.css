@@ -1,14 +1,14 @@
 @font-face {
     font-family: "anurati";
-    src: url("anurati.otf");
+    src: url("fauna.ttf");
 }
 @font-face {
     font-family: "minecraft";
     src: url("minecraft.otf");
 }
 @font-face {
-    font-family: "nasa";
-    src: url("nasalisation.otf");
+    font-family: "fauna";
+    src: url("fauna.ttf");
 }
 #nav{
     background-color: #34463aa2;
@@ -22,14 +22,14 @@
     border-radius: 4px;
 }
 li a{
-    font-family: nasa;
+    font-family: 'anurati';
     max-width: 60vw;
     display: block;
     color: rgb(189, 223, 228);
     border-radius: 4px;
     padding: 8px 16px;
     text-decoration: none;
-    text-align:center;
+    text-align: center;
     font-size: 20px;
     }
     
@@ -41,12 +41,15 @@ body::-webkit-scrollbar{
     width: 0rem;
 }
 h1{
-    font-family: nasa;
+    font-family: 'fauna';
     font-size: max(5vw,60px);
     color:rgb(68, 87, 75);
 }
+h2 {
+    font-family: 'fauna';
+}
 fieldset{
-    font-family: nasa;
+    font-family: monospace;
     color: #34463A;
     border-radius: 30px;
     border-width: 10px;
@@ -68,4 +71,7 @@ img{
     max-width: 60%;
     width:80vw;
     border-radius: 10px;
+}
+strong{
+    font-family: 'fauna';
 }

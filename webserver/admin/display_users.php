@@ -4,7 +4,7 @@ include 'creds.php';
 $conn = new mysqli($host, $user, $passwd, $db);
 
 echo '<table border="1">';
-echo '<tr><th>Schoolcode</th><th>Password</th><th>School</th><th>Action</th></tr>';
+echo '<tr><th>Schoolcode</th><th>Password</th><th>School</th></tr>';
 
 $sql = "SELECT password, schoolcode, school FROM users";
 $result = $conn->query($sql);
