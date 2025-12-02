@@ -1,1 +1,0 @@
-*/10 * * * * sudo chmod 0777 /var/www/html/ -R
