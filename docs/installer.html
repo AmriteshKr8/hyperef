@@ -1,0 +1,48 @@
+<html id="body">
+  <head>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <title>
+    HYPEREF
+  </title>
+  <body bgcolor="#E0D1EF">
+    <ul id="nav">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="installer.html">INSTALL-GUIDE</a></li>
+      <li><a href="docs.html">USAGE-DOCS</a></li>
+      <li><a href="docs-installer.html">INSTALLER-DOCS</a></li>
+    </ul>
+    <center><h1>INSTALL-GUIDE</h1></center>
+    <fieldset>
+      <h3>Get the source:</h3>
+      Clone the git repository:<br>
+      <p id="code">
+        git clone https://github.com/AmriteshKr8/hyperef.git
+      </p>
+      Enter its directory:<br>
+      <p id="code">
+        cd hyperef
+      </p>
+      <h3>Configuration(Optional but Recommended):</h3>
+      Change the web-password:<br> 
+      <p id="code">
+        nano installer/database.sql
+      </p>
+      Change the default username and password on this line:<br>
+      <p id="code">
+        insert into admins(name,password) values('admin','admin@!#+330');
+      </p>
+      Edit creds.php:
+      <p id="code">
+          nano webserver/admin/creds.php
+      </p>
+      Change the default mysql password on these two lines:<br>
+      <p id="code">
+        $password = "rootuser123#";<br>
+        $passwd = "rootuser123#";
+      </p>
+      <strong><font color="red">NOTE:</font></strong> Edit both lines to have matching passwords<br><br>
+      <strong>Please refer to <a href="docs-installer.html">installer-docs</a> for advanced options</strong>
+    </fieldset>
+  </body>
+</html>

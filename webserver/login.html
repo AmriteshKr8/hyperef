@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hyperef - Login</title>
+    <link rel="stylesheet" href="style/log.css">
+</head>
+<body id="bruh">
+<tile>HYPEREF</tile>
+<fieldset>
+<legend><h1><font face="fauna" color="white">Login</font></h1></legend>
+<form action="login.php" method="post"> <!-- Changed action to "" since the PHP script is in the same file -->
+    <div>Team Code:</div>
+    <input type="text" name="schoolcode" id="schoolcode">
+    <br>
+    <div>Password:</div>
+    <input type="password" name="password" id="pw"><br>
+    <div id="buttons">
+        <input type="submit" value="Enter">
+    </div>
+</form>
+</fieldset>
+</body>
+<script src="style/p5.min.js"></script>
+<script src="style/vanta.topology.min.js"></script>
+<script>
+    var code="#4da1a9"   /*<--- change this for dot-wave color #32ff00*/
+    var ball="#ffffff"   /*<--- change this for center ball color #ffffff*/
+    var back="#330c2f"   /*<--- change this for background color #222222*/
+    VANTA.TOPOLOGY({
+        el: "#bruh",
+        mouseControls: true,
+        touchControls: false,
+        gyroControls: false,
+        minHeight: 100.00,
+        minWidth: 100.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+	    color: code,
+        color2: ball,
+        backgroundColor: back,
+    })
+</script>
+</html>

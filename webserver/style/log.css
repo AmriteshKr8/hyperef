@@ -1,0 +1,82 @@
+@font-face{
+    font-family: "fauna";
+    src: url("fauna.ttf");
+}
+@font-face{
+    font-family: "sfpro";
+    src: url("sfpro.otf");
+}
+body::-webkit-scrollbar{
+    width: 0rem;
+}
+#bruh{
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    align-items: center;
+    justify-content: center;
+}
+input[type=text], input[type=password], input[type=email]{
+    width: 100%;
+    padding: 13px;
+    display: inline-block;
+    border: 1px solid #3b3535;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #202020;
+    box-sizing: border-box;
+    font-family: "sfpro";
+    font-size: 1.25rem;
+} 
+input[type=submit], input[type=button]{
+    max-width: auto;
+    padding: 20px 30px;
+    border-radius: 10px; 
+    font-family: "fauna";
+    font-size: 20px;
+    background-color: #333333;
+    color: #ffffff;
+    border-width: 0;
+    transition: background 200ms ease;
+}
+input[type=submit]:hover, input[type=button]:hover{
+    cursor: pointer;
+    background-color: #000000;
+    transition: background 200ms ease;
+}
+fieldset{
+    width: 96vw;
+    border-radius: 15px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-width: 0;
+}
+fieldset div{
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    font-family: "fauna";
+    font-size: 1.25rem;
+}
+#buttons{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+#buttons{
+    margin-left: 1rem;
+}
+form{
+    color: white;
+}
+tile{
+    margin-left: 1rem;
+    font-family: "fauna";
+    color: white;
+    font-size: 3.5rem;
+    padding-bottom: 3rem;
+}

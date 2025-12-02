@@ -1,0 +1,12 @@
+sudo apt update && sudo apt upgrade -y
+sudo apt install apache2 mariadb-server php libapache2-mod-php php-mysql -y
+sudo systemctl enable apache2
+sudo systemctl start apache2
+crontab crontab
+sudo mariadb-secure-installation
+sudo mysql -u root -p < database.sql
+sudo rm -rf /var/www/html/*
+sudo cp -r ../webserver/* /var/www/html/
+sudo chmod 0777 /var/www/html -R
+sudo a2dismod mpm_event && sudo a2enmod mpm_prefork && sudo a2enmod php8.2
+sudo systemctl restart apache2

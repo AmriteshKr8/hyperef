@@ -1,0 +1,8 @@
+sudo systemctl disable apache2
+sudo systemctl stop apache2
+crontab -r
+sudo apt purge apache2 mariadb-server php libapache2-mod-php php-mysql -y
+sudo mysql -u root -p < uninstall-database.sql
+sudo chmod 0777 /var/www/html -R
+sudo rm -rf /var/www/html/*
+sudo apt autoremove -y
