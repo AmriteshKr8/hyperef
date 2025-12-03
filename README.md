@@ -36,4 +36,5 @@ Refer to the <a href="https://amriteshkr8.github.io/hyperef/installer.html">inst
 
 ### Docs & Guides
 
-Docs and guides available at <a href="https://amriteshkr8.github.io/hyperef/docs/index.html">amriteshkr8.github.io/hyperef/docs</a>
+
+Docs and guides available at <a href="https://amriteshkr8.github.io/hyperef/docs/">amriteshkr8.github.io/hyperef/docs</a>
